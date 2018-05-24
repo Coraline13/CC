@@ -3,7 +3,7 @@ import java.lang.*;
 
 class Attempt {
     private String currentState;
-    private ArrayList way;
+    private ArrayList<String[]> way;
 
     static {
         String[][][] map =
@@ -17,7 +17,7 @@ class Attempt {
                         {{"MWG", "MW"}, {"G", "MWC"}},
                         {{"MGC", "MC"}, {"G", "MWC"}},
                         {{"G", "M"}, {"MG", "WC"}},
-                        {{"MG", "MG"}, {"", "MWGC"}}
+                        {{"MG", "MG"}, {".", "MWGC"}}
                 };
         Map<String[], String[]> transitions = new HashMap<>();
         for (String[][] m : map) {
@@ -27,7 +27,7 @@ class Attempt {
 
     public Attempt(String initialState) {
         currentState = initialState;
-        way = new ArrayList();
+        way = new ArrayList<>();
     }
 
 //    public ArrayList shortestWay() {
@@ -35,17 +35,25 @@ class Attempt {
 //    }
 
     public void printWay() {
-        this.shortestWay();
+        int counter = 1;
+        //this.shortestWay();
 
-        for (ArrayList w : this.way) {
-            System.out.println(w[0] + "===>" + w[1] + "===>"w[2]);
+        System.out.print("state 0: MWGC --------- .");
+
+        for (String[] w : this.way) {
+            if (counter % 2 == 0) {
+                System.out.print(" (<=" + w[0] + "<=)\nstate " + counter + ": " + w[1] + " --------- " + w[2]);
+            } else {
+                System.out.print(" (=>" + w[0] + "=>)\nstate " + counter + ": " + w[1] + " --------- " + w[2]);
+            }
+            counter++;
         }
     }
 }
 
 class Lab1 {
-    public static void main(String[] args) throws java.lang.Exception {
-        attempt = new Attempt("MWGC");
+    public static void main(String[] args) {
+        Attempt attempt = new Attempt("MWGC");
         attempt.printWay();
     }
 }
