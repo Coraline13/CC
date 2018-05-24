@@ -1,11 +1,9 @@
 import java.util.*;
 import java.lang.*;
 
-class Attempt {
-    private String currentState;
-    private ArrayList<String[]> way;
-    private static Map<String[], String[]> transitions;
-    private static String[] boat = {"M", "MW", "MG", "MC"};
+class State
+{
+    private String value;
     private static String[][][] map =
             {
                     {{"MWGC", "MG"}, {"WC", "MG"}},
@@ -19,7 +17,6 @@ class Attempt {
                     {{"G", "M"}, {"MG", "WC"}},
                     {{"MG", "MG"}, {".", "MWGC"}}
             };
-
     private static Map<String[], String[]> createMap() {
         Map<String[], String[]> transitions = new HashMap<>();
         for (String[][] m : map) {
@@ -28,10 +25,39 @@ class Attempt {
         return transitions;
     }
 
-    public Attempt(String initialState) {
-        currentState = initialState;
+    public State(String initialState) {
+        value = initialState;
+        Map<String[], String[]> transitions = createMap();
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+}
+
+class MWGC
+{
+    private State currentState;
+    private ArrayList<String[]> way;
+    private static String[] boat = {"M", "MW", "MG", "MC"};
+
+    public MWGC(String initialState) {
+        currentState = new State(initialState);
         way = new ArrayList<>();
-        transitions = createMap();
     }
 
     private boolean validTransition(String[] current_key) {
@@ -40,15 +66,15 @@ class Attempt {
 
     private void shortestWay() {
         for (String b : boat) {
-            String[] key = {currentState, b};
+            String[] key = {currentState.getValue(), b};
 
             if (validTransition(key)) {
-                String[] value = {transitions.get(key)};
-                way.add(key[1]);
-                way.add(value[0]);
-                way.add(value[1]);
+                String[] value = transitions.get(key);
+                String[] tmp = {key[1], value[0], value[1]};
+                way.add(tmp);
+                currentState.setValue(value[0]);
 
-                if(currentState.equals(".")){
+                if (currentState.getValue().equals(".")) {
                     return;
                 }
 
@@ -74,9 +100,10 @@ class Attempt {
     }
 }
 
-class Lab1 {
+class Lab1
+{
     public static void main(String[] args) {
-        Attempt attempt = new Attempt("MWGC");
+        MWGC attempt = new MWGC("MWGC");
         attempt.printWay();
     }
 }
