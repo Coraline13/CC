@@ -1,109 +1,93 @@
 import java.util.*;
 import java.lang.*;
 
-class State
-{
-    private String value;
-    private static String[][][] map =
-            {
-                    {{"MWGC", "MG"}, {"WC", "MG"}},
-                    {{"WC", "M"}, {"MWC", "G"}},
-                    {{"MWC", "MC"}, {"W", "MGC"}},
-                    {{"MWC", "MW"}, {"C", "MWG"}},
-                    {{"W", "MG"}, {"MWG", "C"}},
-                    {{"C", "MG"}, {"MGC", "W"}},
-                    {{"MWG", "MW"}, {"G", "MWC"}},
-                    {{"MGC", "MC"}, {"G", "MWC"}},
-                    {{"G", "M"}, {"MG", "WC"}},
-                    {{"MG", "MG"}, {".", "MWGC"}}
-            };
-    private static Map<String[], String[]> createMap() {
-        Map<String[], String[]> transitions = new HashMap<>();
-        for (String[][] m : map) {
-            transitions.put(m[0], m[1]);
-        }
-        return transitions;
-    }
-
-    public State(String initialState) {
-        value = initialState;
-        Map<String[], String[]> transitions = createMap();
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
+enum Thing {
+    MAN, WOLF, GOAT, CABBAGE
 }
 
-class MWGC
-{
-    private State currentState;
-    private ArrayList<String[]> way;
-    private static String[] boat = {"M", "MW", "MG", "MC"};
+class MWGC {
+    private EnumSet<Thing> state;
+    private ArrayList<List<EnumSet<Thing>>> way;
+    private static HashMap<EnumSet<Thing>, List<EnumSet<Thing>>> transitions = new HashMap<>();
 
-    public MWGC(String initialState) {
-        currentState = new State(initialState);
+    static {
+        transitions.put(EnumSet.allOf(Thing.class), Arrays.asList(EnumSet.of(Thing.MAN, Thing.GOAT)));
+        transitions.put(EnumSet.of(Thing.WOLF, Thing.CABBAGE), Arrays.asList(EnumSet.of(Thing.MAN)));
+        transitions.put(EnumSet.of(Thing.MAN, Thing.WOLF, Thing.CABBAGE), Arrays.asList(
+                EnumSet.of(Thing.MAN, Thing.CABBAGE), EnumSet.of(Thing.MAN, Thing.WOLF)));
+        transitions.put(EnumSet.of(Thing.WOLF), Arrays.asList(EnumSet.of(Thing.MAN, Thing.GOAT)));
+        transitions.put(EnumSet.of(Thing.CABBAGE), Arrays.asList(EnumSet.of(Thing.MAN, Thing.GOAT)));
+        transitions.put(EnumSet.of(Thing.MAN, Thing.WOLF, Thing.GOAT), Arrays.asList(EnumSet.of(Thing.MAN, Thing.WOLF)));
+        transitions.put(EnumSet.of(Thing.MAN, Thing.GOAT, Thing.CABBAGE), Arrays.asList(EnumSet.of(Thing.MAN, Thing.CABBAGE)));
+        transitions.put(EnumSet.of(Thing.GOAT), Arrays.asList(EnumSet.of(Thing.MAN)));
+        transitions.put(EnumSet.of(Thing.MAN, Thing.GOAT), Arrays.asList(EnumSet.of(Thing.MAN, Thing.GOAT)));
+    }
+
+    public MWGC(EnumSet<Thing> initialState) {
+        state = initialState;
         way = new ArrayList<>();
     }
 
-    private boolean validTransition(String[] current_key) {
-        return transitions.containsKey(current_key);
+    public ArrayList<List<EnumSet<Thing>>> shortestWay() {
+        List<EnumSet<Thing>> possibleTransition = transitions.get(state);
+        for (EnumSet<Thing> boat : possibleTransition) {
+            state = EnumSet.copyOf(state);
+            if (state.contains(Thing.MAN)) {
+                state.removeAll(boat);
+            } else {
+                state.addAll(boat);
+            }
+
+            EnumSet<Thing> leftSide = state;
+            EnumSet<Thing> rightSide = EnumSet.complementOf(state);
+            way.add(Arrays.asList(boat, leftSide, rightSide));
+
+            if (leftSide.isEmpty()) {
+                return way;
+            }
+
+            return shortestWay();
+        }
+        return null;
     }
 
-    private void shortestWay() {
-        for (String b : boat) {
-            String[] key = {currentState.getValue(), b};
-
-            if (validTransition(key)) {
-                String[] value = transitions.get(key);
-                String[] tmp = {key[1], value[0], value[1]};
-                way.add(tmp);
-                currentState.setValue(value[0]);
-
-                if (currentState.getValue().equals(".")) {
-                    return;
-                }
-
-                this.shortestWay();
-            }
+    private String conversion(EnumSet<Thing> input) {
+        String str = "";
+        if (input.contains(Thing.MAN)) {
+            str += "M";
         }
+        if (input.contains(Thing.WOLF)) {
+            str += "W";
+        }
+        if (input.contains(Thing.GOAT)) {
+            str += "G";
+        }
+        if (input.contains(Thing.CABBAGE)) {
+            str += "C";
+        }
+        return str;
     }
 
     public void printWay() {
         int counter = 1;
-        this.shortestWay();
+        shortestWay();
 
-        System.out.print("state 0: MWGC --------- .");
+        System.out.print("state 0: MWGC --------- ");
 
-        for (String[] w : this.way) {
+        for (List<EnumSet<Thing>> w : way) {
             if (counter % 2 == 0) {
-                System.out.print(" (<=" + w[0] + "<=)\nstate " + counter + ": " + w[1] + " --------- " + w[2]);
+                System.out.print(" (<= " + conversion(w.get(0)) + " <=)\nstate " + counter + ": " + conversion(w.get(1)) + " --------- " + conversion(w.get(2)));
             } else {
-                System.out.print(" (=>" + w[0] + "=>)\nstate " + counter + ": " + w[1] + " --------- " + w[2]);
+                System.out.print(" (=> " + conversion(w.get(0)) + " =>)\nstate " + counter + ": " + conversion(w.get(1)) + " --------- " + conversion(w.get(2)));
             }
             counter++;
         }
     }
 }
 
-class Lab1
-{
+public class Lab1 {
     public static void main(String[] args) {
-        MWGC attempt = new MWGC("MWGC");
+        MWGC attempt = new MWGC(EnumSet.allOf(Thing.class));
         attempt.printWay();
     }
 }
