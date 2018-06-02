@@ -31,7 +31,7 @@ enum TransitionState {
         }
     }
 
-    public ImageIcon getIcon() {
+    public ImageIcon getImage() {
         switch (this) {
             case STATE0:
                 return new ImageIcon(Aba.class.getResource("/state0.png"));
@@ -144,16 +144,23 @@ class Aba {
 
             entireString += currentString;
 
+            String unreachableStates = "";
+            if (currentState.equals(TransitionState.STATE1) || currentState.equals(TransitionState.STATE2)){
+                unreachableStates += "Unreachable states: 3, 4\n";
+            } else if (currentState.equals(TransitionState.STATE3) || currentState.equals(TransitionState.STATE4)){
+                unreachableStates += "Unreachable states: 1, 2\n";
+            }
 
-            ImageIcon icon = currentState.getIcon();
+            ImageIcon image = currentState.getImage();
             JOptionPane.showMessageDialog(null,
                     "Last input: " + currentString +
                             "\nEntire input: " + entireString +
                             "\nCurrent state: " + currentState +
-                            "\nTransitions: " + way.toString(),
+                            "\n" + unreachableStates +
+                            "Transitions: " + way.toString(),
                     "Results",
                     JOptionPane.PLAIN_MESSAGE,
-                    icon);
+                    image);
 
             if (currentState.isTransitionComplete()) {
                 option = JOptionPane.showConfirmDialog(
