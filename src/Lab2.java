@@ -68,24 +68,43 @@ class Aba {
     public TransitionState transition(Symbol sym) {
         return transitions.get(new Pair<>(currentState, sym));
     }
+
+    public void showTransitionDialog() {
+        String currentString;
+        boolean continuing = true;
+        int option;
+
+        while (continuing) {
+            JOptionPane.showMessageDialog(null,
+                    "This finite state automaton has two accept states and operates over the alphabet \u03A3 = {a, b}.\n" +
+                            "It accepts strings that start and end with the same symbol.\n\n" +
+                            "You can enter strings containing the two symbols 'a' and 'b' (the automaton will ignore any other symbol)\nand see the transitions between the states.",
+                    "Welcome!",
+                    JOptionPane.PLAIN_MESSAGE);
+
+            currentString = JOptionPane.showInputDialog("Input");
+
+//        JOptionPane.showMessageDialog(null, "the sum is : " + sum, "Results", JOptionPane.PLAIN_MESSAGE);
+
+            if (currentState.isTransitionComplete()) {
+                option = JOptionPane.showConfirmDialog(
+                        null,
+                        "You arrived in one of the two accept states.\n" +
+                                "Do you want to continue?",
+                        "Continue to input strings",
+                        JOptionPane.YES_NO_OPTION);
+                if (option == 0) {
+                    continuing = false;
+                }
+            }
+        }
+    }
 }
 
 public class Lab2 {
     public static void main(String[] args) {
-        String currentString;
-        String num1, num2;
-        int number1, number2, sum;
-
-        num1 = JOptionPane.showInputDialog("num1");
-        number1 = Integer.parseInt(num1);
-
-        num2 = JOptionPane.showInputDialog("num2");
-        number2 = Integer.parseInt(num2);
-
-        sum = number1 + number2;
-
-        JOptionPane.showMessageDialog(null, "the sum is : " + sum, "Results", JOptionPane.PLAIN_MESSAGE);
-
-        System.exit(0);
+        // initial state is STATE0
+        Aba attempt = new Aba();
+        attempt.showTransitionDialog();
     }
 }
