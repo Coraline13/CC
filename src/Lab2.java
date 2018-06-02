@@ -3,7 +3,7 @@ import java.lang.*;
 
 import javafx.util.Pair;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 // Example 1.11 from the textbook
 
@@ -30,10 +30,46 @@ enum TransitionState {
                 return true;
         }
     }
+
+    public ImageIcon getIcon() {
+        switch (this) {
+            case STATE0:
+                return new ImageIcon(Aba.class.getResource("/state0.png"));
+            case STATE1:
+                return new ImageIcon(Aba.class.getResource("/state1.png"));
+            case STATE2:
+                return new ImageIcon(Aba.class.getResource("/state2.png"));
+            case STATE3:
+                return new ImageIcon(Aba.class.getResource("/state3.png"));
+            case STATE4:
+                return new ImageIcon(Aba.class.getResource("/state4.png"));
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public String toString() {
+        switch (this) {
+            case STATE0:
+                return "0";
+            case STATE1:
+                return "1";
+            case STATE2:
+                return "2";
+            case STATE3:
+                return "3";
+            case STATE4:
+                return "4";
+            default:
+                return null;
+        }
+    }
 }
 
 class Aba {
     private TransitionState currentState;
+    private String currentString;
     private String entireString;
     private ArrayList<TransitionState> way;
     private static HashMap<Pair<TransitionState, Symbol>, TransitionState> transitions = new HashMap<>();
@@ -63,6 +99,7 @@ class Aba {
         currentState = TransitionState.STATE0;
         entireString = "";
         way = new ArrayList<>();
+        way.add(currentState);
     }
 
     public TransitionState transition(Symbol sym) {
@@ -70,21 +107,53 @@ class Aba {
     }
 
     public void showTransitionDialog() {
-        String currentString;
         boolean continuing = true;
         int option;
 
-        while (continuing) {
-            JOptionPane.showMessageDialog(null,
-                    "This finite state automaton has two accept states and operates over the alphabet \u03A3 = {a, b}.\n" +
-                            "It accepts strings that start and end with the same symbol.\n\n" +
-                            "You can enter strings containing the two symbols 'a' and 'b' (the automaton will ignore any other symbol)\nand see the transitions between the states.",
-                    "Welcome!",
-                    JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                "This finite state automaton has two accept states and operates over the alphabet \u03A3 = {a, b}.\n" +
+                        "It accepts strings that start and end with the same symbol.\n\n" +
+                        "You can enter strings containing the two symbols 'a' and 'b' (the automaton will ignore any other symbol)\n" +
+                        "and see the transitions between the states.");
 
+        while (continuing) {
             currentString = JOptionPane.showInputDialog("Input");
 
-//        JOptionPane.showMessageDialog(null, "the sum is : " + sum, "Results", JOptionPane.PLAIN_MESSAGE);
+            // if Cancel
+            if (currentString == null) {
+                return;
+            }
+
+            // for each symbol in input string
+            for (int i = 0; i < currentString.length(); i++) {
+                char c = currentString.charAt(i);
+                Symbol sym;
+
+                if (c == 'a') {
+                    sym = Symbol.A;
+                } else if (c == 'b') {
+                    sym = Symbol.B;
+                } else {
+                    break;
+                }
+
+                currentState = transition(sym);
+                way.add(currentState);
+            }
+
+
+            entireString += currentString;
+
+
+            ImageIcon icon = currentState.getIcon();
+            JOptionPane.showMessageDialog(null,
+                    "Last input: " + currentString +
+                            "\nEntire input: " + entireString +
+                            "\nCurrent state: " + currentState +
+                            "\nTransitions: " + way.toString(),
+                    "Results",
+                    JOptionPane.PLAIN_MESSAGE,
+                    icon);
 
             if (currentState.isTransitionComplete()) {
                 option = JOptionPane.showConfirmDialog(
@@ -93,7 +162,7 @@ class Aba {
                                 "Do you want to continue?",
                         "Continue to input strings",
                         JOptionPane.YES_NO_OPTION);
-                if (option == 0) {
+                if (option == JOptionPane.NO_OPTION) {
                     continuing = false;
                 }
             }
