@@ -44,27 +44,10 @@ class MWGC {
         visited = new ArrayList<>();
     }
 
+    /**
+     * finds and outputs all the ways that do not pass multiple times through the same state
+     */
     public void shortestWay() {
-//        List<EnumSet<Thing>> possibleTransitions = transitions.get(state);
-//        for (EnumSet<Thing> boat : possibleTransitions) {
-//            state = EnumSet.copyOf(state);
-//            if (state.contains(Thing.MAN)) {
-//                state.removeAll(boat);
-//            } else {
-//                state.addAll(boat);
-//            }
-//
-//            EnumSet<Thing> leftSide = state;
-//            EnumSet<Thing> rightSide = EnumSet.complementOf(state);
-//            way.add(Arrays.asList(boat, leftSide, rightSide));
-//
-//            if (leftSide.isEmpty()) {
-//                return way;
-//            }
-//
-//            return shortestWay();
-//        }
-//        return null;
         if (state.isEmpty()) {
             printWay();
             return;
