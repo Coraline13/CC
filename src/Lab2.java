@@ -141,13 +141,12 @@ class Aba {
                 way.add(currentState);
             }
 
-
             entireString += currentString;
 
             String unreachableStates = "";
-            if (currentState.equals(TransitionState.STATE1) || currentState.equals(TransitionState.STATE2)){
+            if (currentState.equals(TransitionState.STATE1) || currentState.equals(TransitionState.STATE2)) {
                 unreachableStates += "Unreachable states: 3, 4\n";
-            } else if (currentState.equals(TransitionState.STATE3) || currentState.equals(TransitionState.STATE4)){
+            } else if (currentState.equals(TransitionState.STATE3) || currentState.equals(TransitionState.STATE4)) {
                 unreachableStates += "Unreachable states: 1, 2\n";
             }
 
@@ -179,7 +178,7 @@ class Aba {
 
 public class Lab2 {
     public static void main(String[] args) {
-        // initial state is STATE0
+        // initial state is state 0
         Aba attempt = new Aba();
         attempt.showTransitionDialog();
     }
