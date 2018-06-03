@@ -7,10 +7,9 @@
 
 import java.util.*;
 import java.lang.*;
+import javax.swing.*;
 
 import javafx.util.Pair;
-
-import javax.swing.*;
 
 // Example 1.11 from the textbook
 
