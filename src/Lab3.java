@@ -92,7 +92,7 @@ class NFA {
             if (currentState == States.STATE4) {
                 reachedEnd = true;
             }
-            
+
             return;
         }
 
@@ -137,9 +137,13 @@ class NFA {
         validWord(input);
 
         // show result
+        ImageIcon image = new ImageIcon(NFA.class.getResource("/automaton.png"));
         if (reachedEnd) {
             JOptionPane.showMessageDialog(null,
-                    "The automaton accepts the given word.");
+                    "The automaton accepts the given word.",
+                    "Result",
+                    JOptionPane.PLAIN_MESSAGE,
+                    image);
         } else {
             JOptionPane.showMessageDialog(null,
                     "The automaton does not accept the given word.",
