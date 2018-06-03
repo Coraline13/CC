@@ -1,3 +1,6 @@
+//Write a program, in a language of your choice, to provide the solution(s) of the problem „The man, wolf, goat, cabbage”.
+//The problem will be described in terms of a finite automaton.
+
 import java.util.*;
 import java.lang.*;
 

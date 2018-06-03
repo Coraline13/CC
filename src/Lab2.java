@@ -1,3 +1,10 @@
+//Simulate in a language chosen freely the functioning of a finite state automaton described by a regular language.
+//The finite state machine may be an example from the textbook. The simulation will specify all the transitions
+//starting from the initial state and arriving to the accept state.
+//        Suggestions: GUI
+//        • Buttons for inputs
+//        • State chart with the current state highlighted
+
 import java.util.*;
 import java.lang.*;
 
@@ -102,14 +109,17 @@ class Aba {
         way.add(currentState);
     }
 
+    // transits to the next state
     public TransitionState transition(Symbol sym) {
         return transitions.get(new Pair<>(currentState, sym));
     }
 
+    // GUI
     public void showTransitionDialog() {
         boolean continuing = true;
         int option;
 
+        // show info
         JOptionPane.showMessageDialog(null,
                 "This finite state automaton has two accept states and operates over the alphabet \u03A3 = {a, b}.\n" +
                         "It accepts strings that start and end with the same symbol.\n\n" +
@@ -134,7 +144,7 @@ class Aba {
                 } else if (c == 'b') {
                     sym = Symbol.B;
                 } else {
-                    break;
+                    continue;
                 }
 
                 currentState = transition(sym);
@@ -150,6 +160,7 @@ class Aba {
                 unreachableStates += "Unreachable states: 1, 2\n";
             }
 
+            // show results
             ImageIcon image = currentState.getImage();
             JOptionPane.showMessageDialog(null,
                     "Last input: " + currentString +
@@ -161,6 +172,7 @@ class Aba {
                     JOptionPane.PLAIN_MESSAGE,
                     image);
 
+            // show question if the current state is an accept state
             if (currentState.isTransitionComplete()) {
                 option = JOptionPane.showConfirmDialog(
                         null,
