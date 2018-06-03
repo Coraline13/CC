@@ -89,7 +89,10 @@ class NFA {
     // verifies if the given word is accepted by the automaton
     public void validWord(String word) {
         if (word.equals("")) {
-            reachedEnd = true;
+            if (currentState == States.STATE4) {
+                reachedEnd = true;
+            }
+            
             return;
         }
 
