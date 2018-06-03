@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="033758fb-8eea-4dbf-8192-c3fd9db3edfe" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lab1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lab2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/state0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/state1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/state2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/state3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/state4.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,10 +19,9 @@
       <file leaf-file-name="Lab1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Lab1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="-733">
+              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
               <folding>
-                <element signature="e#0#5039#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -38,12 +31,12 @@
       <file leaf-file-name="Lab2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Lab2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1959">
-              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="340">
+              <caret line="116" column="40" lean-forward="true" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
               <folding>
-                <element signature="e#0#6834#0" expanded="true" />
-                <element signature="e#2147#2148#0" expanded="true" />
-                <element signature="e#2216#2217#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3706#3707#0" expanded="true" />
+                <element signature="e#3775#3776#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,11 +45,15 @@
       <file leaf-file-name="Lab3.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Lab3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="460">
+              <caret line="107" column="48" lean-forward="true" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
               <folding>
-                <element signature="e#0#418#0" expanded="true" />
+                <element signature="e#0#2684#0" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="e#2246#2247#0" expanded="true" />
+                <element signature="e#2290#2291#0" expanded="true" />
+                <element signature="e#2383#2384#0" expanded="true" />
+                <element signature="e#2452#2453#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,9 +86,9 @@
       <list>
         <option value="$PROJECT_DIR$/Lab1.java" />
         <option value="$PROJECT_DIR$/src/nvm.java" />
-        <option value="$PROJECT_DIR$/src/Lab3.java" />
         <option value="$PROJECT_DIR$/src/Lab1.java" />
         <option value="$PROJECT_DIR$/src/Lab2.java" />
+        <option value="$PROJECT_DIR$/src/Lab3.java" />
       </list>
     </option>
   </component>
@@ -110,7 +107,7 @@
     <option name="width" value="1400" />
     <option name="height" value="812" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -118,9 +115,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,6 +133,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Lab2">
+  <component name="RunManager" selected="Application.Lab3">
     <configuration name="Lab1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Lab1" />
       <module name="CC" />
@@ -176,6 +173,11 @@
     </configuration>
     <configuration name="Lab2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Lab2" />
+      <module name="CC" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Lab3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Lab3" />
       <module name="CC" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -223,9 +225,11 @@
     <list>
       <item itemvalue="Application.Lab1" />
       <item itemvalue="Application.Lab2" />
+      <item itemvalue="Application.Lab3" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Lab3" />
         <item itemvalue="Application.Lab2" />
         <item itemvalue="Application.Lab1" />
       </list>
@@ -247,7 +251,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56068000" />
+    <option name="totallyTimeSpent" value="65912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
@@ -269,7 +273,6 @@
       <window_info id="Designer" order="3" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14570552" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32884902" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -292,16 +295,15 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32884902" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39910313" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39910313" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32884902" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32884902" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
     </layout>
@@ -328,12 +330,18 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Lab3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Lab1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2760">
           <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
           <folding>
-            <element signature="e#0#5039#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -368,24 +376,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/state.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/CC/Lab2.class">
+    <entry file="file://$PROJECT_DIR$/src/Lab1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="120">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
-            <element signature="e#0#279#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state.png" />
+    <entry file="file://$PROJECT_DIR$/out/production/CC/Lab2.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2760">
+          <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nvm.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/jdk/internal/util/Preconditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Deprecated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="92" column="11" selection-start-line="92" selection-start-column="11" selection-end-line="92" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="764" column="22" selection-start-line="764" selection-start-column="22" selection-end-line="764" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lab1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
-            <element signature="e#0#5039#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state.png" />
+    <entry file="file://$PROJECT_DIR$/out/production/CC/Lab2.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2760">
+          <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nvm.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/jdk/internal/util/Preconditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Deprecated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="92" column="11" selection-start-line="92" selection-start-column="11" selection-end-line="92" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="764" column="22" selection-start-line="764" selection-start-column="22" selection-end-line="764" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state.png" />
+    <entry file="file://$PROJECT_DIR$/out/production/CC/Lab2.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -393,23 +529,117 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lab2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1959">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
           <folding>
-            <element signature="e#0#6834#0" expanded="true" />
-            <element signature="e#2147#2148#0" expanded="true" />
-            <element signature="e#2216#2217#0" expanded="true" />
+            <element signature="e#0#2684#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2290#2291#0" expanded="true" />
+            <element signature="e#2383#2384#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2760">
+          <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nvm.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/jdk/internal/util/Preconditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Deprecated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="92" column="11" selection-start-line="92" selection-start-column="11" selection-end-line="92" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="764" column="22" selection-start-line="764" selection-start-column="22" selection-end-line="764" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state.png" />
+    <entry file="file://$PROJECT_DIR$/out/production/CC/Lab2.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="116" column="40" lean-forward="true" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3706#3707#0" expanded="true" />
+            <element signature="e#3775#3776#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-733">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lab3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="460">
+          <caret line="107" column="48" lean-forward="true" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
           <folding>
-            <element signature="e#0#418#0" expanded="true" />
+            <element signature="e#0#2684#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2290#2291#0" expanded="true" />
+            <element signature="e#2383#2384#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
           </folding>
         </state>
       </provider>

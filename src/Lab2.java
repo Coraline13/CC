@@ -13,7 +13,7 @@ import javafx.util.Pair;
 
 // Example 1.11 from the textbook
 
-enum Symbol {
+enum Alphabet {
     A, B
 }
 
@@ -78,24 +78,24 @@ class Aba {
     private String currentString;
     private String entireString;
     private ArrayList<TransitionState> way;
-    private static HashMap<Pair<TransitionState, Symbol>, TransitionState> transitions = new HashMap<>();
+    private static HashMap<Pair<TransitionState, Alphabet>, TransitionState> transitions = new HashMap<>();
 
     // transition diagram (contains all legal moves and all reachable states)
     static {
-        transitions.put(new Pair<>(TransitionState.STATE0, Symbol.A), TransitionState.STATE1);
-        transitions.put(new Pair<>(TransitionState.STATE0, Symbol.B), TransitionState.STATE3);
+        transitions.put(new Pair<>(TransitionState.STATE0, Alphabet.A), TransitionState.STATE1);
+        transitions.put(new Pair<>(TransitionState.STATE0, Alphabet.B), TransitionState.STATE3);
 
-        transitions.put(new Pair<>(TransitionState.STATE1, Symbol.A), TransitionState.STATE1);
-        transitions.put(new Pair<>(TransitionState.STATE1, Symbol.B), TransitionState.STATE2);
+        transitions.put(new Pair<>(TransitionState.STATE1, Alphabet.A), TransitionState.STATE1);
+        transitions.put(new Pair<>(TransitionState.STATE1, Alphabet.B), TransitionState.STATE2);
 
-        transitions.put(new Pair<>(TransitionState.STATE2, Symbol.A), TransitionState.STATE1);
-        transitions.put(new Pair<>(TransitionState.STATE2, Symbol.B), TransitionState.STATE2);
+        transitions.put(new Pair<>(TransitionState.STATE2, Alphabet.A), TransitionState.STATE1);
+        transitions.put(new Pair<>(TransitionState.STATE2, Alphabet.B), TransitionState.STATE2);
 
-        transitions.put(new Pair<>(TransitionState.STATE3, Symbol.A), TransitionState.STATE4);
-        transitions.put(new Pair<>(TransitionState.STATE3, Symbol.B), TransitionState.STATE3);
+        transitions.put(new Pair<>(TransitionState.STATE3, Alphabet.A), TransitionState.STATE4);
+        transitions.put(new Pair<>(TransitionState.STATE3, Alphabet.B), TransitionState.STATE3);
 
-        transitions.put(new Pair<>(TransitionState.STATE4, Symbol.A), TransitionState.STATE4);
-        transitions.put(new Pair<>(TransitionState.STATE4, Symbol.B), TransitionState.STATE3);
+        transitions.put(new Pair<>(TransitionState.STATE4, Alphabet.A), TransitionState.STATE4);
+        transitions.put(new Pair<>(TransitionState.STATE4, Alphabet.B), TransitionState.STATE3);
     }
 
     /**
@@ -109,7 +109,7 @@ class Aba {
     }
 
     // transits to the next state
-    public TransitionState transition(Symbol sym) {
+    public TransitionState transition(Alphabet sym) {
         return transitions.get(new Pair<>(currentState, sym));
     }
 
@@ -136,12 +136,12 @@ class Aba {
             // for each symbol in input string
             for (int i = 0; i < currentString.length(); i++) {
                 char c = currentString.charAt(i);
-                Symbol sym;
+                Alphabet sym;
 
                 if (c == 'a') {
-                    sym = Symbol.A;
+                    sym = Alphabet.A;
                 } else if (c == 'b') {
-                    sym = Symbol.B;
+                    sym = Alphabet.B;
                 } else {
                     continue;
                 }
