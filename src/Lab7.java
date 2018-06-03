@@ -19,7 +19,7 @@ class PushdownAutomata {
 
     public boolean isAccepted() {
         while (!input.equals("")) {
-                        
+
             input = input.substring(1);
         }
 
