@@ -52,9 +52,10 @@ enum States {
 class NFA {
     private States currentState;
     private String input;
+    private boolean reachedEnd;
     private static HashMap<Pair<States, Symbol>, EnumSet<States>> transitions = new HashMap<>();
 
-    // transition diagram (contains all legal moves and all reachable states)
+    // transition diagram (reachedEnd all legal moves and all reachable states)
     static {
         transitions.put(new Pair<>(States.STATE1, Symbol.ZERO),
                 EnumSet.of(States.STATE1));
@@ -77,6 +78,7 @@ class NFA {
      */
     public NFA() {
         currentState = States.STATE1;
+        reachedEnd = false;
     }
 
     // transits to the next state
@@ -84,10 +86,11 @@ class NFA {
         return transitions.get(new Pair<>(currentState, sym));
     }
 
-    //
-    public boolean validWord(String word) {
-        if (word == null) {
-            return true;
+    // verifies if the given word is accepted by the automaton
+    public void validWord(String word) {
+        if (word.equals("")) {
+            reachedEnd = true;
+            return;
         }
 
         Symbol sym;
@@ -96,7 +99,8 @@ class NFA {
         } else if (word.charAt(0) == '1') {
             sym = Symbol.ONE;
         } else {
-            return validWord(word.substring(1));
+            validWord(word.substring(1));
+            return;
         }
 
         EnumSet<States> possibleTransitions = transition(sym);
@@ -105,17 +109,13 @@ class NFA {
             States oldState = currentState;
             currentState = transition;
 
-            return validWord(word.substring(1));
+            validWord(word.substring(1));
             currentState = oldState;
         }
     }
 
     // GUI
     public void showMessage() {
-        int option;
-        boolean contains = true;
-        EnumSet<States> possibleTransitions = null;
-
         // show info
         JOptionPane.showMessageDialog(null,
                 "This finite state automaton recognizes the language consisting of all strings over {0, 1} " +
@@ -131,10 +131,10 @@ class NFA {
             return;
         }
 
-        contains = validWord(input);
+        validWord(input);
 
         // show result
-        if (contains) {
+        if (reachedEnd) {
             JOptionPane.showMessageDialog(null,
                     "The automaton accepts the given word.");
         } else {
