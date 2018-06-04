@@ -5,6 +5,8 @@
 //        • Buttons for inputs
 //        • State chart with the current state highlighted
 
+package Lab2;
+
 import java.util.*;
 import java.lang.*;
 import javax.swing.*;
@@ -17,7 +19,7 @@ enum Alphabet {
     A, B
 }
 
-enum TransitionState {
+enum States {
     STATE0, STATE1, STATE2, STATE3, STATE4;
 
     public boolean isTransitionComplete() {
@@ -40,15 +42,15 @@ enum TransitionState {
     public ImageIcon getImage() {
         switch (this) {
             case STATE0:
-                return new ImageIcon(Aba.class.getResource("/state0.png"));
+                return new ImageIcon(Aba.class.getResource("/Lab2/state0.png"));
             case STATE1:
-                return new ImageIcon(Aba.class.getResource("/state1.png"));
+                return new ImageIcon(Aba.class.getResource("/Lab2/state1.png"));
             case STATE2:
-                return new ImageIcon(Aba.class.getResource("/state2.png"));
+                return new ImageIcon(Aba.class.getResource("/Lab2/state2.png"));
             case STATE3:
-                return new ImageIcon(Aba.class.getResource("/state3.png"));
+                return new ImageIcon(Aba.class.getResource("/Lab2/state3.png"));
             case STATE4:
-                return new ImageIcon(Aba.class.getResource("/state4.png"));
+                return new ImageIcon(Aba.class.getResource("/Lab2/state4.png"));
             default:
                 return null;
         }
@@ -74,42 +76,42 @@ enum TransitionState {
 }
 
 class Aba {
-    private TransitionState currentState;
+    private States currentState;
     private String currentString;
     private String entireString;
-    private ArrayList<TransitionState> way;
-    private static HashMap<Pair<TransitionState, Alphabet>, TransitionState> transitions = new HashMap<>();
+    private ArrayList<States> way;
+    private static HashMap<Pair<States, Alphabet>, States> transitions = new HashMap<>();
 
     // transition diagram (contains all legal moves and all reachable states)
     static {
-        transitions.put(new Pair<>(TransitionState.STATE0, Alphabet.A), TransitionState.STATE1);
-        transitions.put(new Pair<>(TransitionState.STATE0, Alphabet.B), TransitionState.STATE3);
+        transitions.put(new Pair<>(States.STATE0, Alphabet.A), States.STATE1);
+        transitions.put(new Pair<>(States.STATE0, Alphabet.B), States.STATE3);
 
-        transitions.put(new Pair<>(TransitionState.STATE1, Alphabet.A), TransitionState.STATE1);
-        transitions.put(new Pair<>(TransitionState.STATE1, Alphabet.B), TransitionState.STATE2);
+        transitions.put(new Pair<>(States.STATE1, Alphabet.A), States.STATE1);
+        transitions.put(new Pair<>(States.STATE1, Alphabet.B), States.STATE2);
 
-        transitions.put(new Pair<>(TransitionState.STATE2, Alphabet.A), TransitionState.STATE1);
-        transitions.put(new Pair<>(TransitionState.STATE2, Alphabet.B), TransitionState.STATE2);
+        transitions.put(new Pair<>(States.STATE2, Alphabet.A), States.STATE1);
+        transitions.put(new Pair<>(States.STATE2, Alphabet.B), States.STATE2);
 
-        transitions.put(new Pair<>(TransitionState.STATE3, Alphabet.A), TransitionState.STATE4);
-        transitions.put(new Pair<>(TransitionState.STATE3, Alphabet.B), TransitionState.STATE3);
+        transitions.put(new Pair<>(States.STATE3, Alphabet.A), States.STATE4);
+        transitions.put(new Pair<>(States.STATE3, Alphabet.B), States.STATE3);
 
-        transitions.put(new Pair<>(TransitionState.STATE4, Alphabet.A), TransitionState.STATE4);
-        transitions.put(new Pair<>(TransitionState.STATE4, Alphabet.B), TransitionState.STATE3);
+        transitions.put(new Pair<>(States.STATE4, Alphabet.A), States.STATE4);
+        transitions.put(new Pair<>(States.STATE4, Alphabet.B), States.STATE3);
     }
 
     /**
      * constructor
      */
     public Aba() {
-        currentState = TransitionState.STATE0;
+        currentState = States.STATE0;
         entireString = "";
         way = new ArrayList<>();
         way.add(currentState);
     }
 
     // transits to the next state
-    public TransitionState transition(Alphabet sym) {
+    public States transition(Alphabet sym) {
         return transitions.get(new Pair<>(currentState, sym));
     }
 
@@ -153,9 +155,9 @@ class Aba {
             entireString += currentString;
 
             String unreachableStates = "";
-            if (currentState.equals(TransitionState.STATE1) || currentState.equals(TransitionState.STATE2)) {
+            if (currentState.equals(States.STATE1) || currentState.equals(States.STATE2)) {
                 unreachableStates += "Unreachable states: 3, 4\n";
-            } else if (currentState.equals(TransitionState.STATE3) || currentState.equals(TransitionState.STATE4)) {
+            } else if (currentState.equals(States.STATE3) || currentState.equals(States.STATE4)) {
                 unreachableStates += "Unreachable states: 1, 2\n";
             }
 

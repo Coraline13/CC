@@ -2,6 +2,8 @@
 //determines if w ∈ L(N). The non-deterministic finite state machine may be an example from the textbook.
 //The simulation will also specify all the transitions starting from the initial state and arriving to the accept state.
 
+package Lab3;
+
 import javax.swing.*;
 import java.util.*;
 import java.lang.*;
@@ -10,66 +12,35 @@ import javafx.util.Pair;
 
 // Example 1.30 from the textbook
 
-enum Symbol {
+enum Alphabet {
     ZERO, ONE
 }
 
 enum States {
-    STATE1, STATE2, STATE3, STATE4;
-
-    public boolean isTransitionComplete() {
-        switch (this) {
-            case STATE1:
-                return false;
-            case STATE2:
-                return false;
-            case STATE3:
-                return false;
-            case STATE4:
-                return true;
-            default:
-                return true;
-        }
-    }
-
-    @Override
-    public String toString() {
-        switch (this) {
-            case STATE1:
-                return "1";
-            case STATE2:
-                return "2";
-            case STATE3:
-                return "3";
-            case STATE4:
-                return "4";
-            default:
-                return null;
-        }
-    }
+    STATE1, STATE2, STATE3, STATE4
 }
 
 class NFA {
     private States currentState;
     private String input;
     private boolean reachedEnd;
-    private static HashMap<Pair<States, Symbol>, EnumSet<States>> transitions = new HashMap<>();
+    private static HashMap<Pair<States, Alphabet>, EnumSet<States>> transitions = new HashMap<>();
 
     // transition diagram (reachedEnd all legal moves and all reachable states)
     static {
-        transitions.put(new Pair<>(States.STATE1, Symbol.ZERO),
+        transitions.put(new Pair<>(States.STATE1, Alphabet.ZERO),
                 EnumSet.of(States.STATE1));
-        transitions.put(new Pair<>(States.STATE1, Symbol.ONE),
+        transitions.put(new Pair<>(States.STATE1, Alphabet.ONE),
                 EnumSet.of(States.STATE1, States.STATE2));
 
-        transitions.put(new Pair<>(States.STATE2, Symbol.ZERO),
+        transitions.put(new Pair<>(States.STATE2, Alphabet.ZERO),
                 EnumSet.of(States.STATE3));
-        transitions.put(new Pair<>(States.STATE2, Symbol.ONE),
+        transitions.put(new Pair<>(States.STATE2, Alphabet.ONE),
                 EnumSet.of(States.STATE3));
 
-        transitions.put(new Pair<>(States.STATE3, Symbol.ZERO),
+        transitions.put(new Pair<>(States.STATE3, Alphabet.ZERO),
                 EnumSet.of(States.STATE4));
-        transitions.put(new Pair<>(States.STATE3, Symbol.ONE),
+        transitions.put(new Pair<>(States.STATE3, Alphabet.ONE),
                 EnumSet.of(States.STATE4));
     }
 
@@ -82,7 +53,7 @@ class NFA {
     }
 
     // transits to the next state
-    public EnumSet<States> transition(Symbol sym) {
+    public EnumSet<States> transition(Alphabet sym) {
         return transitions.get(new Pair<>(currentState, sym));
     }
 
@@ -96,11 +67,11 @@ class NFA {
             return;
         }
 
-        Symbol sym;
+        Alphabet sym;
         if (word.charAt(0) == '0') {
-            sym = Symbol.ZERO;
+            sym = Alphabet.ZERO;
         } else if (word.charAt(0) == '1') {
-            sym = Symbol.ONE;
+            sym = Alphabet.ONE;
         } else {
             validWord(word.substring(1));
             return;
@@ -137,7 +108,7 @@ class NFA {
         validWord(input);
 
         // show result
-        ImageIcon image = new ImageIcon(NFA.class.getResource("/automaton.png"));
+        ImageIcon image = new ImageIcon(NFA.class.getResource("/Lab3/automaton.png"));
         if (reachedEnd) {
             JOptionPane.showMessageDialog(null,
                     "The automaton accepts the given word.",

@@ -1,6 +1,8 @@
 //The aim of this programming assignment is to write a program that simulates a pushdown automaton
 //which accepts the language L = {wcw^R}.
 
+package Lab7;
+
 import javax.swing.*;
 import java.util.*;
 import java.lang.*;
@@ -39,7 +41,7 @@ class PushdownAutomata {
                     }
                     tmpStack.push(currentStack.pop());
                 }
-                
+
                 if (index == input.length()) {
                     if (currentStack.empty()) {
                         return true;

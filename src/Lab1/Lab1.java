@@ -1,6 +1,8 @@
 //Write a program, in a language of your choice, to provide the solution(s) of the problem „The man, wolf, goat, cabbage”.
 //The problem will be described in terms of a finite automaton.
 
+package Lab1;
+
 import java.util.*;
 import java.lang.*;
 
@@ -88,7 +90,7 @@ class MWGC {
      * converts from EnumSet to String (for print purposes)
      *
      * @param input is the input EnumSet with the content of the boat
-     * @return String containing letters for each Thing in the boat
+     * @return String containing letters for each Lab1.Thing in the boat
      */
     private String conversion(EnumSet<Thing> input) {
         String str = "";
@@ -113,7 +115,7 @@ class MWGC {
     public void printWay() {
         int counter = 1;
 
-        System.out.print("state 0: MWGC --------- ");
+        System.out.print("state 0: Lab1.MWGC --------- ");
 
         for (List<EnumSet<Thing>> w : way) {
             if (counter % 2 == 0) {
